@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!-- HSV.ColorClock ¯\(ツ)/¯ @alterebro -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>HSV Color Clock</title>
+    <meta name="description" content="HSV Color Clock. Color changing clock representing visually time by using the HSV color space." />
+    <meta name="keywords" content="Color, clock, HSV, CSS, HTML, JavaScript" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="cleartype" content="on" />
+    <meta name="author" content="Jorge Moreno aka Moro (@alterebro). http://moro.es" />
+    <meta name="copyright" content="Copyright 2015. Jorge Moreno. All Rights Reserved." />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="The Color Clock" />
+    <link rel="canonical" href="http://path" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900&subset=latin,latin-ext" />
+    <link rel="stylesheet" type="text/css" href="frontend/styles/app.css" />
+</head>
+<body id="app" class="dark">
+
+<section id="info-block" class="closed">
+    <header>
+        <h1>HSV Color Clock</h1>
+        <p><a href="#" id="menu-trigger"><span>Info</span></a></p>
+    </header>
+    <article>
+        <div id="the-info">
+            <p>
+                <strong>HSV Color Clock</strong> is a little experiment with the purpose of representing visually time by using the
+                <strong><a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" title="HSV Color Space">HSV Color Space representation</a></strong>
+                (Hue, Saturation, Value). It adheres to the following rules:
+            </p>
+            <ul>
+                <li>Colors cannot repeat and each minute of the day should match a different color.</li>
+                <li>12.00 midday should match to White color (0% Saturation and 100% of Value)</li>
+                <li>00.00 midnight should correspond to Black color (0% Saturation and 0% Value)</li>
+                <li>Color change has to be done gradually and no sudden big step should happen between contiguous minutes.</li>
+            </ul>
+            <p>
+                This experiment has been developed using HTML5, CSS3 and JavaScript / jQuery by : <strong><a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></strong>
+            </p>
+
+            <hr />
+
+            <p>
+                <strong>HSV Color Clock</strong> es un pequeño experimento con el objetivo de representar visualmente el tiempo en forma de color
+                usando el <strong><a href="https://es.wikipedia.org/wiki/Modelo_de_color_HSV" target="_blank" title="Modelo de color HSV - HSB">modelo HSV</a></strong>
+                (Matiz, Saturación, Valor). Las reglas que sigue son las siguientes:
+            </p>
+            <ul>
+                <li>Los colores no pueden repetirse y a cada minuto del dia le debe corresponder un color diferente.</li>
+                <li>Las 12.00 del mediodia deben corresponder a el color Blanco (Saturación: 0%, Valor: 100%).</li>
+                <li>Las 0:00 de la noche deben corresponder a el color Negro (Saturación: 0%, Valor: 0%)</li>
+                <li>El cambio de color ha de ser gradual y no puede haber saltos bruscos entre minutos contiguos.</li>
+            </ul>
+            <p>
+                Este experimento ha sido desarrollado usando HTML5, CSS3 y JavaScript / jQuery por : <strong><a href="https://twitter.com/alterebro" target="_blank">@alterebro</a></strong>
+            </p>
+        </div>
+    </article>
+</section>
+
+<section id="main-block">
+
+        <div id="clock">
+            <div id="clock-sec"></div>
+            <div id="clock-min"></div>
+            <div id="clock-hour"></div>
+            <div id="clock-base"></div>
+            <div id="clock-top"></div>
+        </div>
+
+        <div id="clock-output">
+            <div id="output-time"></div>
+            <div id="output-color"></div>
+        </div>
+
+</section>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.1.2/tinycolor.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="frontend/scripts/app.js"></script>
+</body>
+</html>
