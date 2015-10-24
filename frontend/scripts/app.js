@@ -6,9 +6,6 @@ var minutes_to_HSV = {
     total_minutes : (60*24),
 
     current_minutes : function() {
-        // var d = new Date();
-        // return (d.getHours() * 60) + d.getMinutes();
-
         var now = moment();
         return (now.hours()*60) + now.minutes();
     },
@@ -27,22 +24,20 @@ var minutes_to_HSV = {
     },
 
     S : function(current_m) {
-        var saturation = 100; // default saturation
-        var half_m = this.total_minutes/2;
 
-        if ( current_m < 100 ) {
-            saturation = current_m;
-        }
-        if ( current_m > (half_m-100) && current_m <= half_m ) {
-            saturation = 100 - (current_m - (half_m-100));
-        }
-        if ( current_m > half_m && current_m < (half_m+100) ) {
-            saturation = current_m - half_m;
-        }
-        if ( current_m > this.total_minutes-100 ) {
-            saturation = 100 - (current_m - (this.total_minutes-100));
-        }
-        return saturation;
+        var limit = this.total_minutes/4;
+        var loop = Math.floor(current_m/limit);
+
+        var j = (loop%2 === 0) ? current_m%limit : limit-(current_m%limit);
+        var s = (j*(Math.PI/2))/limit;
+            s = Math.round( Math.sin(s)*100 );
+
+        var p = Math.abs (50 - Math.round((j/limit)*100));
+        var s2 = ((100-s)/2) - p;
+            s2 = ( s2 > 0 ) ? s2 : 0;
+            s = Math.ceil(s+s2);
+
+        return s;
     },
 
     V : function(current_m) {
@@ -157,7 +152,6 @@ $('#info-block header').on('click', function(e) {
 // ------------------------
 var analog = true;
 $('#main-block').on('click', function() {
-    console.log( analog );
     if ( analog === true ) {
         $('#clock').css('opacity', 0);
         $('#clock-output').css('opacity', 1);
